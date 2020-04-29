@@ -2,7 +2,13 @@ A marginally faster 3D interpolation compared to `scipy.interpolate.RegularGridI
 
 Forked from interp3d by jglaser (https://github.com/jglaser/interp3d)
 
-Installation (requires **cython** and Microsoft Visual Studio (for parallelization))
+Installation 
+requires **cython** 
+
+and 
+
+**Microsoft Visual Studio** (for parallelization) in Windows
+**OpenMP** in Linux
 
 ```
 python3 setup.py install
