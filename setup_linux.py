@@ -1,3 +1,5 @@
+#this might work for linux, but I haven't tested it
+
 from distutils.core import setup
 from Cython.Build import cythonize
 from distutils.extension import Extension
