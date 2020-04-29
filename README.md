@@ -7,7 +7,8 @@ requires **cython**
 
 and 
 
-**Microsoft Visual Studio** (for parallelization) in Windows
+**Microsoft Visual Studio** (for parallelization) in Windows; or
+
 **OpenMP** in Linux
 
 ```
