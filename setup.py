@@ -1,3 +1,5 @@
+#for serial, just delete extra_compile_args and use num_threads = 1 in simulation. It should work.
+
 from distutils.core import setup
 from Cython.Build import cythonize
 from distutils.extension import Extension
