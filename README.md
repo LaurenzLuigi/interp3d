@@ -1,8 +1,8 @@
-A faster 3D interpolation to replace `scipy.interpolate.RegularGridInterpolator()`
+A marginally faster 3D interpolation compared to `scipy.interpolate.RegularGridInterpolator()`
 
-Implemented after <https://stackoverflow.com/questions/41220617/python-3d-interpolation-speedup>.
+Forked from interp3d by jglaser (https://github.com/jglaser/interp3d)
 
-Installation (requires **cython**):
+Installation (requires **cython** and Microsoft Visual Studio (for parallelization))
 
 ```
 python3 setup.py install
@@ -26,8 +26,12 @@ interp = interp_3d.Interp3D(arr, x,y,z)
 from scipy.interpolate import RegularGridInterpolator
 interp_si = RegularGridInterpolator((x,y,z),arr)
 
-x0, y0, z0 = (1.1,0.25, 7.5)
-print('this class {}'.format(interp((x0,y0,z0))))
-print('scipy.interpolate.RegularGridInterpolator() {}'.format(interp_si((x0,y0,z0)), x0+2*y0-3*z0))
-print('exact {}'.format(x0+2*y0-3*z0))
+x0 = [0, 0.5]
+y0 = [0, 0.1]
+z0 = [5, 15]
+exact = [x + 2*y -3*z for (x,y,z) in np.c_[x0,y0,z0]]
+
+print('this class {}'.format(interp(np.c_[x0,y0,z0],1)))
+print('scipy.interpolate.RegularGridInterpolator() {}'.format(interp_si(np.c_[x0,y0,z0])))
+print('exact ', exact)
 ```
