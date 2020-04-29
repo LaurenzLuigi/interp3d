@@ -31,7 +31,8 @@ y0 = [0, 0.1]
 z0 = [5, 15]
 exact = [x + 2*y -3*z for (x,y,z) in np.c_[x0,y0,z0]]
 
-print('this class {}'.format(interp(np.c_[x0,y0,z0],1)))
+num_threads = 8 #number of threads for parallel computation
+print('this class {}'.format(interp(np.c_[x0,y0,z0],num_threads)))
 print('scipy.interpolate.RegularGridInterpolator() {}'.format(interp_si(np.c_[x0,y0,z0])))
 print('exact ', exact)
 ```
